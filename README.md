@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tischtennis Turnier App
 
-## Getting Started
+Eine moderne, Cloud-native Webapplikation zur Verwaltung von Universitätsturnieren, sofort deploybar auf **Vercel**.
 
-First, run the development server:
+## Features
+- 🚀 **Next.js 14 App Router** für schnelle Klick-Interaktionen
+- 📊 **Vercel Postgres** Backend: Asynchrone und serverlose Persistenz
+- 🏆 **Turnier-Engine**: Automatische Gruppengenerierung per Skill-Level-Ausgleich und KO-Baum-Engine
+- 📺 **Scoreboard**: Beamer-optimiertes Live-Dashboard
+- 🎨 **Sportliches Design**: Responsive Mobile-First mit automatischem Darkmode durch Vanilla CSS und CSS-Variables
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Vercel Deployment (Empfohlen)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Die App ist perfekt vorbereitet für Vercel.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **GitHub-Repository verknüpfen**: Lade den Code auf ein Remote-Repo (z.B. GitHub).
+2. **Vercel Project anlegen**: Importiere das Repository via `vercel.com/new`.
+3. **Datenbank verbinden**:
+   - Gehe in deinem Vercel Projekt auf **Storage**
+   - Klicke auf **Create database** -> **Postgres**
+   - Verbinde die Datenbank mit deinem Projekt (Vercel fügt die Environment-Variablen automatisch hinzu).
+4. **Deployen**: Klicke auf Deploy. Fertig!
+   - Auf der Live-Seite: Klicke oben auf "Turnier-Admin" und generiere 16 Demo-Spieler, um die Datenbanktabellen zu initialisieren.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Lokale Entwicklung (Local Dev)
+Zur lokalen Entwicklung mit echter Datenbankanbindung:
 
-## Learn More
+1. Installiere die [Vercel CLI](https://vercel.com/docs/cli).
+2. Logge dich ein: `vercel login`
+3. Verbinde dein lokales Verzeichnis mit deinem Vercel Projekt (wo die Datenbank läuft): `vercel link`
+4. Lade die Datenbank-Environment-Variablen in eine `.env.local`: `vercel env pull .env.local`
+5. Starte die App: `npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
+Die Tabellenstruktur der Datenbank initialisiert sich beim ersten Verwenden bestimmter Features von selbst (Fallback Init), alternativ über eine Code-Ausführung oder API Setup Call.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech-Stack
+- **Frontend**: React, Next.js Server Components, Vanilla CSS für schnelles Laden, Lucide React für Icons.
+- **Backend**: Next.js Server Actions.
+- **Datenbank**: `@vercel/postgres` (PostgreSQL via Vercel Edge).
