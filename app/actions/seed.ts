@@ -16,7 +16,7 @@ export async function seedDemoPlayers() {
   await deleteAllGroups();
   await deleteAllMatches();
 
-  const count = 16; 
+  const count = 16;
   for (let i = 0; i < count; i++) {
     const fn = randomElement(demoFirstNames);
     const ln = randomElement(demoLastNames);
